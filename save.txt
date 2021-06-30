@@ -1,0 +1,21 @@
+// récupérer les données du flux RSS
+
+$rss_urls = ["https://www.01net.com/rss/tests/les-derniers-tests/rss-derniers-tests/", "https://www.01net.com/rss/actualite/"];
+
+$carrousel = [];
+
+$rss_map = array_map(function ($rss) {
+    $rss_file = simplexml_load_file($rss);
+    $carrousel[] = $rss_file->channel->item;
+    return $rss_file;
+}, $rss_urls);
+
+echo "<br>";
+
+foreach ($rss_map as $rss_file) {
+    $itemList = $rss_file->channel->item;
+    for ($i = 1; $i < count($itemList); $i++) {
+        $item = $itemList[$i];
+        echo $item->title . "<br>";
+    }
+}
