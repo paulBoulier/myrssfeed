@@ -9,7 +9,7 @@ $rssArray = [
     "https://www.01net.com/rss/diaporama/",
     "https://www.01net.com/rss/actualites/produits/",
     "https://www.01net.com/rss/actualites/applis-logiciels/",
-    "https://www.01net.com/rss/actualites/technos/"
+    "https://www.01net.com/rss/actualites/technos/",
 ];
 
 foreach ($rssArray as $value) {
@@ -18,18 +18,24 @@ foreach ($rssArray as $value) {
 
     foreach ($rssFlux->channel->item as $value) {
         $substr = substr($rssFlux->channel->title, 0, -8);
-        if ($nbItem < 12) {
+        if ($nbItem < 12/*$_COOKIE["articleCount"]*/) {
+            preg_match("/[^<]+(?=<)/", $value->description, $description);
+            preg_match("/(?<=src=\").+(?=\")/", $value->description, $src);
             array_push(
                 $itemArray,
                 [
                     "cat" => $substr,
-                    "title" => (string)$value->title,
-                    "link" => (string)$value->link,
-                    "description" => (string)$value->description,
-                    "date" => (string)$value->pubDate
+                    "title" => (string) $value->title,
+                    "link" => trim((string) $value->link),
+                    "description" => (string) $description[0],
+                    "src" => $src[0],
+                    "date" => (string) $value->pubDate,
                 ]
             );
+        } else {
+            break;
         }
+
         $nbItem++;
     }
 }
