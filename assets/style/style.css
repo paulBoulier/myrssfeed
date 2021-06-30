@@ -1,0 +1,37 @@
+.category-1 {
+    background-color: red;
+}
+
+.category-2 {
+    background-color: blue;
+}
+
+.category-3 {
+    background-color: green;
+}
+
+.category-4 {
+    background-color: orange;
+}
+
+.category-5 {
+    background-color: purple;
+}
+
+.category-1,
+.category-2,
+.category-3,
+.category-4,
+.category-5,
+.timer {
+    font-size: .75rem;
+}
+
+.category-1,
+.category-2,
+.category-3,
+.category-4,
+.category-5 {
+    padding: .25rem;
+    color: white;
+}

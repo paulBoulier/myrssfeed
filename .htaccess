@@ -1,5 +1,5 @@
 RewriteEngine On
 RewriteRule ^accueil.html$ /index.php [L]
-RewriteRule ^parametre.html$ /parameters.php [L]
+RewriteRule ^parametre.html$ /views/parameters.php [L]
 RewriteRule ^sujet([1-5]).html$ /index.php?q=$1 [L]
 ErrorDocument 404 /404.php

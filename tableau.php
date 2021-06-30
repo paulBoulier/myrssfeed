@@ -12,12 +12,15 @@ $rssArray = [
     "https://www.01net.com/rss/actualites/technos/",
 ];
 
+$categories = [];
+
 foreach ($rssArray as $value) {
     $nbItem = 0;
     $rssFlux = simplexml_load_file($value);
 
+    $substr = substr($rssFlux->channel->title, 0, -8);
+    $categories[] = $substr;
     foreach ($rssFlux->channel->item as $value) {
-        $substr = substr($rssFlux->channel->title, 0, -8);
         if ($nbItem < 12/*$_COOKIE["articleCount"]*/) {
             preg_match("/[^<]+(?=<)/", $value->description, $description);
             preg_match("/(?<=src=\").+(?=\")/", $value->description, $src);
@@ -27,7 +30,7 @@ foreach ($rssArray as $value) {
                     "cat" => $substr,
                     "title" => (string) $value->title,
                     "link" => trim((string) $value->link),
-                    "description" => (string) $description[0],
+                    "description" => trim($description[0]),
                     "src" => $src[0],
                     "date" => (string) $value->pubDate,
                 ]
