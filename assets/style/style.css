@@ -35,3 +35,9 @@
     padding: .25rem;
     color: white;
 }
+
+.errorMessage{
+    font-size: 13px;
+    font-style: italic;
+    color: red;
+}
