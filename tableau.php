@@ -3,9 +3,6 @@
 // array indexé non organisé de tous les articles
 $itemArray = [];
 
-// le nombre que l'on va incrémenter à chaque itération de la boucle pour limiter les articles à une certaine quantité
-$nbItem = 0;
-
 $rssArray = [
     "files" => "https://www.01net.com/rss/actualite/",
     "diapo" => "https://www.01net.com/rss/diaporama/",
