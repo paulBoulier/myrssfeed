@@ -19,7 +19,7 @@ $selectedSubjects = !empty($_COOKIE) && null !== ($selected = $_COOKIE["selected
     <?php include "../navbar.php" ?>
     <div class="container-fluid">
         <div class="row mt-3">
-            <h1 class="text-center">Parametre</h1>
+            <h1 class="text-center">Paramètres</h1>
         </div>
         <form action="parametre.html" method="POST">
             <div class="row d-flex flex-column align-items-center mt-5">

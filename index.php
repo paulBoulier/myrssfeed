@@ -30,7 +30,7 @@ include "toolDate.php";
                     <div class="ps-2 flex-grow-1">
                         <!-- catégorie et timer -->
                         <div>
-                            <span class="category-<?= array_search($item["cat"], array_keys($categories)) + 1 ?>"><?= $item["cat"] ?></span>
+                            <span class="category-<?= array_search($item["cat"], array_keys($categories)) + 1 ?>"><?= $categories[$item["cat"]] ?></span>
                             <span><b class="timer"><?= getTime($item["date"]) ?></b></span>
                         </div>
                         <!-- titre de l'article -->
