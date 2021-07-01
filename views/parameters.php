@@ -1,5 +1,7 @@
 <?php
 require '../controllers/parameters-controller.php';
+
+$selectedSubjects = !empty($_COOKIE) && null !== ($selected = $_COOKIE["selectedSubjects"]) && ($decode = json_decode($selected)) ? $decode : [];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +15,8 @@ require '../controllers/parameters-controller.php';
     <title>Document</title>
 </head>
 
-<body>
-    <?php include "../navbar.php"?>
+<body class="<?= (!empty($_COOKIE) && $_COOKIE["theme"] == "dark") ? "bg-dark text-light" : "" ?>">
+    <?php include "../navbar.php" ?>
     <div class="container-fluid">
         <div class="row mt-3">
             <h1 class="text-center">Parametre</h1>
@@ -23,7 +25,7 @@ require '../controllers/parameters-controller.php';
             <div class="row d-flex flex-column align-items-center mt-5">
                 <div class="col-lg-3">
                     <label class="form-label">Choix du thème :</label>
-                    <span class="errorMessage"><?=$errorMessage["errorTheme"] ?? ''?></span>
+                    <span class="errorMessage"><?= $errorMessage["errorTheme"] ?? '' ?></span>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="theme" id="themeDark" value="dark" checked>
                         <label class="form-check-label" for="themeDark">
@@ -39,7 +41,7 @@ require '../controllers/parameters-controller.php';
                 </div>
                 <div class="col-lg-3 mt-3">
                     <label class="form-label">Nombre d'article afficher :</label>
-                    <span class="errorMessage"><?=$errorMessage["errorArticle"] ?? ''?></span>
+                    <span class="errorMessage"><?= $errorMessage["errorArticle"] ?? '' ?></span>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="article" id="six" value="6" checked>
                         <label class="form-check-label" for="six">
@@ -62,36 +64,36 @@ require '../controllers/parameters-controller.php';
                 <div class="col-lg-3 mt-3">
                     <label class="form-label">Choix des flux : (1 - 3 Choix possible)</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="actualite" name="files" value="files">
+                        <input class="form-check-input" type="checkbox" id="actualite" name="files" value="files" <?= in_array("files", $selectedSubjects) ? "checked" : "" ?>>
                         <label class="form-check-label" for="actualite">
                             Actualite
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="diapo" name="diapo" value="diapo">
+                        <input class="form-check-input" type="checkbox" id="diapo" name="diapo" value="diapo" <?= in_array("diapo", $selectedSubjects) ? "checked" : "" ?>>
                         <label class="form-check-label" for="diapo">
                             Diaporama
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="product" name="product" value="product">
+                        <input class="form-check-input" type="checkbox" id="product" name="product" value="product" <?= in_array("product", $selectedSubjects) ? "checked" : "" ?>>
                         <label class="form-check-label" for="product">
                             Produits
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="appli" name="apps" value="apps">
+                        <input class="form-check-input" type="checkbox" id="appli" name="apps" value="apps" <?= in_array("apps", $selectedSubjects) ? "checked" : "" ?>>
                         <label class="form-check-label" for="appli">
                             Applis-Logiciels
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="technos" name="technos" value="technos">
+                        <input class="form-check-input" type="checkbox" id="technos" name="technos" value="technos" <?= in_array("technos", $selectedSubjects) ? "checked" : "" ?>>
                         <label class="form-check-label" for="technos">
                             Technos
                         </label>
                     </div>
-                    <span class="errorMessage d-block"><?=$errorMessage["errorFlux"] ?? ''?></span>
+                    <span class="errorMessage d-block"><?= $errorMessage["errorFlux"] ?? '' ?></span>
                 </div>
             </div>
             <div class="row justify-content-center mt-4">

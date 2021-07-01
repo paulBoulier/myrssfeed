@@ -3,9 +3,6 @@
 // array indexé non organisé de tous les articles
 $itemArray = [];
 
-// le nombre que l'on va incrémenter à chaque itération de la boucle pour limiter les articles à une certaine quantité
-$nbItem = 0;
-
 $rssArray = [
     "files" => "https://www.01net.com/rss/actualite/",
     "diapo" => "https://www.01net.com/rss/diaporama/",
@@ -28,8 +25,10 @@ foreach ($rssArray as $key => $value) {
     // le titre du flux que l'on parcours
     $substr = substr($rssFlux->channel->title, 0, -8);
 
+    $allowed_articleCount = [6, 9, 12];
+
     foreach ($rssFlux->channel->item as $value) {
-        if ($nbItem < 12/*$_COOKIE["articleCount"]*/) {
+        if ($nbItem < (!empty($_COOKIE) && in_array($_COOKIE["articleCount"], $allowed_articleCount) ? $_COOKIE["articleCount"] : 12)) {
             // on découpe la valeur description du rss qui contient la description et l'image
             preg_match("/[^<]+(?=<)/", $value->description, $description);
             preg_match("/(?<=src=\").+(?=\")/", $value->description, $src);
@@ -46,7 +45,7 @@ foreach ($rssArray as $key => $value) {
             // on push dans l'array de façon désorganisée
             array_push($itemArray, $options);
             // on push dans l'array par rapport au nom de la catégorie
-            $rssArray_categories[$substr] = $options;
+            $rssArray_categories[$key] = $options;
         } else {
             break;
         }
