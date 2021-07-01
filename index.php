@@ -1,6 +1,9 @@
 <?php
 
-include "tableau.php";
+var_dump($_GET);
+
+die;
+
 include "toolDate.php";
 
 ?>
@@ -15,26 +18,7 @@ include "toolDate.php";
     <link rel="stylesheet" href="./assets/style/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <?php for ($i = 0; $i < count($categories); $i++): ?>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./sujet<?=$i + 1?>.html"><?=$categories[$i]?></a>
-                        </li>
-                    <?php endfor;?>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./parametre.html">Paramètres</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php include "navbar.php";?>
     <main class="container">
         <?php foreach ($itemRsort as $item): ?>
         <div class="card m-3 mx-auto" style="max-width: 56.5rem">
@@ -43,8 +27,8 @@ include "toolDate.php";
                 <div class="ps-2 flex-grow-1">
                     <!-- catégorie et timer -->
                     <div>
-                        <span class="category-<?=array_search($item["cat"], $categories)+1?>"><?= $item["cat"] ?></span>
-                        <span><b class="timer"><?= getTime($item["date"]) ?></b></span>
+                        <span class="category-<?=array_search($item["cat"], array_keys($categories)) + 1?>"><?=$categories[$item["cat"]]?></span>
+                        <span><b class="timer"><?=getTime($item["date"])?></b></span>
                     </div>
                     <!-- titre de l'article -->
                     <p><?=$item["title"]?></p>

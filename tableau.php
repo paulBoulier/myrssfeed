@@ -1,29 +1,32 @@
 <?php
 
+// array indexé non organisé de tous les articles
 $itemArray = [];
 
+// le nombre que l'on va incrémenter à chaque itération de la boucle pour limiter les articles à une certaine quantité
 $nbItem = 0;
 
 $rssArray = [
-    "https://www.01net.com/rss/actualite/",
-    "https://www.01net.com/rss/diaporama/",
-    "https://www.01net.com/rss/actualites/produits/",
-    "https://www.01net.com/rss/actualites/applis-logiciels/",
-    "https://www.01net.com/rss/actualites/technos/",
+    "files" => "https://www.01net.com/rss/actualite/",
+    "diapo" => "https://www.01net.com/rss/diaporama/",
+    "product" => "https://www.01net.com/rss/actualites/produits/",
+    "apps" => "https://www.01net.com/rss/actualites/applis-logiciels/",
+    "technos" => "https://www.01net.com/rss/actualites/technos/",
 ];
 
-$categories = [];
+// correspondance des catégories en français
+$categories = ["files" => "Actualité", "diapo" => "Diaporama", "product" => "Produits", "apps" => "Applis-Logiciels", "technos" => "Technos"];
+
+// les flux rangés par catégories
 $rssArray_categories = [];
 
-foreach ($rssArray as $value) {
+foreach ($rssArray as $key => $value) {
     // valeur à incrémenter à chaque itération lorsque l'on parcours les items d'un flux (pour gérer les cas ou le flux est plus petit que 12 items)
     $nbItem = 0;
     $rssFlux = simplexml_load_file($value);
 
     // le titre du flux que l'on parcours
     $substr = substr($rssFlux->channel->title, 0, -8);
-    // on push dans categories le titre du flux
-    $categories[] = $substr;
 
     foreach ($rssFlux->channel->item as $value) {
         if ($nbItem < 12/*$_COOKIE["articleCount"]*/) {
@@ -32,7 +35,7 @@ foreach ($rssArray as $value) {
             preg_match("/(?<=src=\").+(?=\")/", $value->description, $src);
             // les clés que l'on aura dans notre array
             $options = [
-                "cat" => $substr,
+                "cat" => $key,
                 "title" => (string) $value->title,
                 "link" => trim((string) $value->link),
                 "description" => trim($description[0]),
@@ -51,22 +54,26 @@ foreach ($rssArray as $value) {
     }
 }
 
-//Tableaux des timestamp
+//Tableau des timestamp
 $timestamp = [];
 
+// on push dans le tableau de des timestamp, la timestamp dans l'ordre des items de $itemArray
 foreach ($itemArray as $value) {
     array_push($timestamp, strtotime($value["date"]));
 }
 
+// on réorganise les timestamp de façon décroissante
 rsort($timestamp);
 
-//Tableaux des item trier par date
+//Tableaux des items triés par date
 $itemRsort = [];
 
+// on fait une boucle sur $itemArray, et on push dans itemRsort par ordre chronologique décroissant à l'aide de la position de l'item dans l'array timestamp
 foreach ($itemArray as $value) {
     $timestampDate = strtotime($value["date"]);
     $keyArray = array_search($timestampDate, $timestamp);
     $itemRsort[$keyArray] = $value;
 }
 
+// on réorganise les clés du talbeau $itemRsort car elles sont mélangées
 ksort($itemRsort);
