@@ -41,6 +41,7 @@ foreach ($rssArray as $key => $value) {
                 "description" => trim($description[0]),
                 "src" => $src[0],
                 "date" => (string) $value->pubDate,
+                "image" => (string) $value->enclosure["url"],
             ];
             // on push dans l'array de façon désorganisée
             array_push($itemArray, $options);
