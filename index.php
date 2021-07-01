@@ -39,8 +39,10 @@ include "toolDate.php";
     </nav>
     <main class="container">
         <?php
-        $i = 1;
-        foreach ($itemRsort as $item) : ?>
+        foreach ($itemRsort as $item) : 
+        setlocale(LC_TIME, 'fr_FR');
+        $newDate = strftime("%A %e %B %Y", strtotime($item["date"]));
+        ?>
             <div class="card m-3 mx-auto" style="max-width: 56.5rem">
                 <div class="card-body d-flex">
                     <img src="<?= $item["src"] ?>">
@@ -54,7 +56,7 @@ include "toolDate.php";
                         <p><?= $item["title"] ?></p>
                         <!-- boutons -->
                         <div class="d-inline-block ms-auto">
-                            <button id="modalButton" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#item" data-title="<?= $item["title"] ?>" data-img="<?= $item["src"] ?>" data-desc="<?= $item["description"] ?>" data-link="<?= $item["link"] ?>">
+                            <button id="modalButton" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#item" data-title="<?= $item["title"] ?>" data-img="<?= $item["src"] ?>" data-desc="<?= $item["description"] ?>" data-link="<?= $item["link"] ?>" data-date="<?= $newDate ?>">
                                 Launch demo modal
                             </button>
                             <a class="btn" href="<?= $item["link"] ?>" target="_blank">Lien vers l'article</a>
@@ -68,8 +70,9 @@ include "toolDate.php";
     <div class="modal fade" id="item" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <div class="modal-header d-flex flex-column text-center">
+                    <h5 class="modal-title mb-2" id="exampleModalLabel"></h5>
+                    <p id="dateModal"></p>
                 </div>
                 <img id="imgModal">
                 <div class="modal-body" id="descModal"></div>
