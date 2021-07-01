@@ -31,27 +31,33 @@ elseif ($diff < 604800) {
 }
 elseif ($diff < 1209600) {
     $diffe= $diff/604800;
-    $res .= floor($diffe) . " semaine";
+    $res .= "il y a " . floor($diffe) . " semaine";
+    return $res;
 }
-elseif ($diff < 1209600) {
+elseif ($diff < 2592000) {
     $diffe= $diff/604800;
     $res .= floor($diffe) . " semaines";
+    return $res;
 }
-elseif ($diff < 2592000) {
+elseif ($diff < 5184000) {
     $diffe= $diff/2592000;
     $res .= floor($diffe) . " mois";
+    return $res;
 }
-elseif ($diff < 2592000) {
+elseif ($diff < 31536000) {
     $diffe= $diff/2592000;
     $res .= floor($diffe) . " mois";
+    return $res;
 }
 elseif ($diff < 63072000) {
     $diffe= $diff/31536000;
-    $res .= floor($diffe) . " année";
+    $res .= floor($diffe) . " an";
+    return $res;
 }
 elseif ($diff > 63072000) {
     $diffe= $diff/31536000;
-    $res .= floor($diffe) . " années";
+    $res .= floor($diffe) . " ans";
+    return $res;
 }
 return $res;
 }
