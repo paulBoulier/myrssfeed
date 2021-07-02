@@ -28,7 +28,7 @@ function getTime($myDate)
         $res .= floor($diffe) . " jours";
     } elseif ($diff < 1209600) {
         $diffe = $diff / 604800;
-        $res .= "il y a " . floor($diffe) . " semaine";
+        $res .= floor($diffe) . " semaine";
         return $res;
     } elseif ($diff < 2592000) {
         $diffe = $diff / 604800;

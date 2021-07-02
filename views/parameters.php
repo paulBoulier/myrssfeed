@@ -33,7 +33,7 @@ $selectedSubjects = !empty($_COOKIE) && null !== ($selected = $_COOKIE["selected
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="theme" id="themeLight" value="light" <?= isset($_COOKIE["theme"]) && $_COOKIE["theme"] == "light" ? "checked" : "" ?>>
+                        <input class="form-check-input" type="radio" name="theme" id="themeLight" value="light" <?= isset($_COOKIE["theme"]) && $_COOKIE["theme"] == "light" ? "checked" : "" ?> <?= empty($_COOKIE["theme"]) ? "checked" : "" ?>>
                         <label class="form-check-label" for="themeLight">
                             Light
                         </label>
@@ -94,14 +94,10 @@ $selectedSubjects = !empty($_COOKIE) && null !== ($selected = $_COOKIE["selected
                         </label>
                     </div>
                     <span class="errorMessage d-block"><?= $errorMessage["errorFlux"] ?? '' ?></span>
-                </div>
-            </div>
-            <div class="row justify-content-center mt-4">
-                <div class="col-1">
-                    <input type="submit" name="submit" class="btn btn-primary" value="Envoyer">
-                </div>
-                <div class="col-1">
-                    <a href="index.php"><input type="button" class="btn btn-danger" value="Retour"></a>
+                    <div class="text-center mt-5">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Envoyer">
+                        <a href="index.php"><input type="button" class="btn btn-danger" value="Retour"></a>
+                    </div>
                 </div>
             </div>
         </form>
