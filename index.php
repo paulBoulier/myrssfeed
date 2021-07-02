@@ -42,10 +42,11 @@ include "toolDate.php";
                                     <p class="m-0"><?= $item["title"] ?></p>
                                 </div>
                             </div>
-                        <?php } ?>
-                        <?php $categoriesCount[$item["cat"]] = 1 ?>
+                        </div>
                     <?php } ?>
-                <?php endforeach; ?>
+                    <?php $categoriesCount[$item["cat"]] = 1 ?>
+                <?php } ?>
+            <?php endforeach; ?>
         </main>
         <!-- modal -->
         <div class="modal fade" id="item" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

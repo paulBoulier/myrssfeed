@@ -58,10 +58,34 @@ h5 {
     font-size: 1.1rem;
 }
 
-.carouselSize {
-    height: 15rem;
+.titreCaroussel {
+    text-justify: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10%;
+    font-size: 1.1rem;
+    border-radius: 0.3rem;
+}
+
+.carrouselSize {
+    height: 30rem;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .carrouselSize {
+        height: 17rem;
+    }
 }
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+.nav-link::after {
+    content: "";
+    display: block;
+    width: .5rem;
+    height: .5rem;
+    background-color: grey;
+    border-radius: 100%;
 }

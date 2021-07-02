@@ -2,4 +2,4 @@ RewriteEngine On
 RewriteRule ^accueil.html$ index.php
 RewriteRule ^parametre.html$ views/parameters.php
 RewriteRule ^sujet([1-5]).html$ views/pages.php?q=$1
-ErrorDocument 404 http://localhost:8888/myrssfeed/404.php
+ErrorDocument 404 /404.php
