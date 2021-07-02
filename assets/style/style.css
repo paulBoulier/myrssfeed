@@ -36,8 +36,17 @@
     color: white;
 }
 
-.errorMessage{
+.errorMessage {
     font-size: 13px;
     font-style: italic;
     color: red;
+}
+
+.card-dark {
+    box-shadow: 0 0.25rem 1rem #961c44;
+    border-color: #961c44 !important;
+}
+
+.card-light {
+    box-shadow: 0 0.25rem 1rem lightgrey;
 }
