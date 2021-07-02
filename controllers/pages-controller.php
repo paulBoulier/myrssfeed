@@ -1,7 +1,5 @@
 <?php
 
-include '../tableau.php';
-
 $catNumber = $_GET["q"] - 1;
 $newCategories = array_keys($categories);
 
