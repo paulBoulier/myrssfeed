@@ -76,7 +76,7 @@ ksort($pageRsort);
 
 foreach ($pageRsort as $value) {
     setlocale(LC_TIME, 'fr_FR', "fra");
-    $newDate = "Le " . strftime("%A %e %B %Y", strtotime($value["date"]));
+    $newDate = "Le " . utf8_encode(strftime("%A %e %B %Y", strtotime($value["date"])));
 ?>
     <div class="card mb-3 mx-auto <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark card-dark" : "card-light" ?>" style="max-width: 540px;">
         <div class="row g-0">
