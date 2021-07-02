@@ -22,9 +22,6 @@ foreach ($rssArray as $key => $value) {
     $nbItem = 0;
     $rssFlux = simplexml_load_file($value);
 
-    // le titre du flux que l'on parcours
-    $substr = substr($rssFlux->channel->title, 0, -8);
-
     $allowed_articleCount = [6, 9, 12];
 
     foreach ($rssFlux->channel->item as $value) {
