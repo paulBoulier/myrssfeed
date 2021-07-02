@@ -13,9 +13,10 @@ include "toolDate.php";
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/style/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 
-<body>
+<body class="<?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
     <?php include "navbar.php" ?>
     <main class="container">
         <?php
@@ -23,23 +24,23 @@ include "toolDate.php";
             setlocale(LC_TIME, 'fr_FR', "fra");
             $newDate = "Le " . strftime("%A %e %B %Y", strtotime($item["date"]));
         ?>
-            <div class="card m-3 mx-auto" style="max-width: 56.5rem">
+            <div class="card m-3 mx-auto <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark border-light" : "" ?>" style="max-width: 56.5rem">
                 <div class="card-body d-flex">
                     <img class="align-self-start" src="<?= $item["src"] ?>">
                     <div class="ps-2 flex-grow-1">
                         <!-- catégorie et timer -->
                         <div>
-                            <span class="category-<?= array_search($item["cat"], array_keys($categories)) + 1 ?>"><?= $item["cat"] ?></span>
+                            <span class="category-<?= array_search($item["cat"], array_keys($categories)) + 1 ?>"><?= $categories[$item["cat"]] ?></span>
                             <span><b class="timer"><?= getTime($item["date"]) ?></b></span>
                         </div>
                         <!-- titre de l'article -->
                         <p><?= $item["title"] ?></p>
                         <!-- boutons -->
-                        <div class="d-inline-block ms-auto">
-                            <button id="modalButton" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#item" data-title="<?= $item["title"] ?>" data-img="<?= $item["image"] ?>" data-desc="<?= $item["description"] ?>" data-link="<?= $item["link"] ?>" data-date="<?= $newDate ?>">
-                                Launch demo modal
+                        <div class="d-inline-block float-end">
+                            <button id="modalButton" type="button" class="btn fs-4 <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light border-light" : "" ?>" data-bs-toggle="modal" data-bs-target="#item" data-title="<?= $item["title"] ?>" data-img="<?= $item["image"] ?>" data-desc="<?= $item["description"] ?>" data-link="<?= $item["link"] ?>" data-date="<?= $newDate ?>">
+                                <i class="bi bi-search"></i>
                             </button>
-                            <a class="btn" href="<?= $item["link"] ?>" target="_blank">Lien vers l'article</a>
+                            <a class="btn <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light border-light" : "" ?>" href="<?= $item["link"] ?>" target="_blank">Lien vers l'article</a>
                         </div>
                     </div>
                 </div>

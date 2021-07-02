@@ -18,7 +18,7 @@ $navbar_decode = decode_arr("selectedSubjects", $_COOKIE);
 // var_dump($categories);
 
 ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg <?=(!empty($_COOKIE) && $_COOKIE["theme"] == "dark") ? "navbar-dark bg-dark" : "navbar-light bg-light"?>">
     <div class="container-fluid">
         <a class="navbar-brand" href="./accueil.html">Accueil</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
