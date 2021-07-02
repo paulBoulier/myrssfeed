@@ -48,19 +48,19 @@ if (!empty($bonjour)) {
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <a href="<?= $carrousselLink[0] ?>" target="blank"><img src="<?= $carrousselImage[0] ?>" class="carouselSize "></a>
+      <a href="<?= $carrousselLink[0] ?>" target="blank"><img src="<?= $carrousselImage[0] ?>" class="carrouselSize "></a>
       <div class="carousel-caption ">
         <h5 class="titreCarroussel"><?= $carrousselTitle[0] ?></h5>
       </div>
     </div>
     <div class="carousel-item">
-    <a href="<?= $carrousselLink[1] ?>" target="blank"><img src="<?= $carrousselImage[1] ?>" class="carouselSize "></a>
+    <a href="<?= $carrousselLink[1] ?>" target="blank"><img src="<?= $carrousselImage[1] ?>" class="carrouselSize "></a>
       <div class="carousel-caption">
         <h5 class="titreCarroussel"><?= $carrousselTitle[1] ?></h5>
       </div>
     </div>
     <div class="carousel-item">
-    <a href="<?= $carrousselLink[2] ?>" target="blank"><img src="<?= $carrousselImage[2] ?>" class="carouselSize"></a>
+    <a href="<?= $carrousselLink[2] ?>" target="blank"><img src="<?= $carrousselImage[2] ?>" class="carrouselSize"></a>
       <div class="carousel-caption">
         <h5 class="titreCarroussel"><?= $carrousselTitle[2] ?></h5>
       </div>
