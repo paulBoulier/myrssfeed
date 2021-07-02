@@ -46,22 +46,22 @@ if (!empty($bonjour)) {
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <div class="carousel-inner">
+  <div class="carouselSize carousel-inner">
     <div class="carousel-item active">
-      <a href="<?= $carrousselLink[0] ?>" target="blank"><img src="<?= $carrousselImage[0] ?>" class="d-block w-100"></a>
-      <div class="carousel-caption d-none d-md-block">
+      <a href="<?= $carrousselLink[0] ?>" target="blank"><img src="<?= $carrousselImage[0] ?>" class="carouselSize "></a>
+      <div class="carousel-caption ">
         <h5><?= $carrousselTitle[0] ?></h5>
       </div>
     </div>
     <div class="carousel-item">
-    <a href="<?= $carrousselLink[1] ?>" target="blank"><img src="<?= $carrousselImage[1] ?>" class="d-block w-100"></a>
-      <div class="carousel-caption d-none d-md-block">
+    <a href="<?= $carrousselLink[1] ?>" target="blank"><img src="<?= $carrousselImage[1] ?>" class="carouselSize "></a>
+      <div class="carousel-caption">
         <h5><?= $carrousselTitle[1] ?></h5>
       </div>
     </div>
     <div class="carousel-item">
-    <a href="<?= $carrousselLink[2] ?>" target="blank"><img src="<?= $carrousselImage[2] ?>" class="d-block w-100"></a>
-      <div class="carousel-caption d-none d-md-block">
+    <a href="<?= $carrousselLink[2] ?>" target="blank"><img src="<?= $carrousselImage[2] ?>" class="carouselSize"></a>
+      <div class="carousel-caption">
         <h5><?= $carrousselTitle[2] ?></h5>
       </div>
     </div>
