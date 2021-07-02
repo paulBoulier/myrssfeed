@@ -43,11 +43,6 @@ include "toolDate.php";
                                 </div>
                             </div>
                         </div>
-<<<<<<< HEAD
-=======
-                        <?php } ?>
-                        <?php $categoriesCount[$item["cat"]] = 1 ?>
->>>>>>> 8402575c9ab7bd3c457cf779cd7c420abefe0068
                     <?php } ?>
                     <?php $categoriesCount[$item["cat"]] = 1 ?>
                 <?php } ?>
