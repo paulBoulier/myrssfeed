@@ -1,5 +1,5 @@
 //On recupere tous les bouton des cards
-const selectButtonCard = document.querySelectorAll("button[id=modalButton]");
+const selectButtonCard = document.querySelectorAll("#modalButton");
 //On recupere l'id du titre de la modal
 const selectTitleModal = document.getElementById("exampleModalLabel");
 //On recupere l'id de l'image de la modal
@@ -13,11 +13,11 @@ const selectDateModal = document.getElementById("dateModal");
 
 
 selectButtonCard.forEach(element => {
-    element.addEventListener("click", function() {
-       selectTitleModal.innerHTML = this.dataset.title;
-       selectImgModal.setAttribute("src", this.dataset.img);
-       selectDescModal.innerHTML = this.dataset.desc;
-       selectLinkModal.setAttribute("href", this.dataset.link);
-       selectDateModal.innerHTML = this.dataset.date;
+    element.addEventListener("click", function () {
+        selectTitleModal.innerHTML = this.dataset.title;
+        selectImgModal.setAttribute("src", this.dataset.img);
+        selectDescModal.innerHTML = this.dataset.desc;
+        selectLinkModal.setAttribute("href", this.dataset.link);
+        selectDateModal.innerHTML = this.dataset.date;
     })
 });

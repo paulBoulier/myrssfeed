@@ -50,3 +50,7 @@
 .card-light {
     box-shadow: 0 0.25rem 1rem lightgrey;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+}
