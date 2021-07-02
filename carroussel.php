@@ -12,11 +12,13 @@ if (!empty($bonjour)) {
 
   $carrousselImage = [];
   $carrousselTitle = [];
+  $carrousselLink = [];
 
   $fluxCarroussel = simplexml_load_file($rssArray[$firstCookie]);
   foreach ($fluxCarroussel->channel->item as $value) {
     array_push($carrousselImage, (string)$value->enclosure["url"]);
     array_push($carrousselTitle, (string) $value->title);
+    array_push($carrousselLink, (string) $value->link);
     break;
   }
 
@@ -24,6 +26,7 @@ if (!empty($bonjour)) {
   foreach ($fluxCarroussel->channel->item as $value) {
     array_push($carrousselImage, (string)$value->enclosure["url"]);
     array_push($carrousselTitle, (string) $value->title);
+    array_push($carrousselLink, (string) $value->link);
     break;
   }
 
@@ -31,6 +34,7 @@ if (!empty($bonjour)) {
   foreach ($fluxCarroussel->channel->item as $value) {
     array_push($carrousselImage, (string)$value->enclosure["url"]);
     array_push($carrousselTitle, (string) $value->title);
+    array_push($carrousselLink, (string) $value->link);
     break;
   }
 }
@@ -44,19 +48,19 @@ if (!empty($bonjour)) {
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="<?= $carrousselImage[0] ?>" class="d-block w-100">
+      <a href="<?= $carrousselLink[0] ?>" target="blank"><img src="<?= $carrousselImage[0] ?>" class="d-block w-100"></a>
       <div class="carousel-caption d-none d-md-block">
         <h5><?= $carrousselTitle[0] ?></h5>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="<?= $carrousselImage[1] ?>" class="d-block w-100">
+    <a href="<?= $carrousselLink[1] ?>" target="blank"><img src="<?= $carrousselImage[1] ?>" class="d-block w-100"></a>
       <div class="carousel-caption d-none d-md-block">
         <h5><?= $carrousselTitle[1] ?></h5>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="<?= $carrousselImage[2] ?>" class="d-block w-100">
+    <a href="<?= $carrousselLink[2] ?>" target="blank"><img src="<?= $carrousselImage[2] ?>" class="d-block w-100"></a>
       <div class="carousel-caption d-none d-md-block">
         <h5><?= $carrousselTitle[2] ?></h5>
       </div>
