@@ -3,12 +3,20 @@
 // array indexé non organisé de tous les articles
 $itemArray = [];
 
+// $rssArray = [
+//     "files" => "https://www.01net.com/rss/actualites/buzz-societe/",
+//     "diapo" => "https://www.01net.com/rss/actualites/culture-medias/",
+//     "product" => "https://www.01net.com/rss/actualites/produits/",
+//     "apps" => "https://www.01net.com/rss/actualites/applis-logiciels/",
+//     "technos" => "https://www.01net.com/rss/actualites/technos/",
+// ];
+
 $rssArray = [
-    "files" => "https://www.01net.com/rss/actualites/buzz-societe/",
-    "diapo" => "https://www.01net.com/rss/actualites/culture-medias/",
-    "product" => "https://www.01net.com/rss/actualites/produits/",
-    "apps" => "https://www.01net.com/rss/actualites/applis-logiciels/",
-    "technos" => "https://www.01net.com/rss/actualites/technos/",
+    "files" => "https://rmcsport.bfmtv.com/rss/rugby/",
+    "diapo" => "https://rmcsport.bfmtv.com/rss/basket/",
+    "product" => "https://rmcsport.bfmtv.com/rss/tennis/",
+    "apps" => "https://rmcsport.bfmtv.com/rss/cyclisme/",
+    "technos" => "https://rmcsport.bfmtv.com/rss/football/transferts/",
 ];
 
 // correspondance des catégories en français

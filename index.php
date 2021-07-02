@@ -42,6 +42,7 @@ include "toolDate.php";
                                     <p class="m-0"><?= $item["title"] ?></p>
                                 </div>
                             </div>
+                        </div>
                         <?php } ?>
                         <?php $categoriesCount[$item["cat"]] = 1 ?>
                     <?php } ?>
