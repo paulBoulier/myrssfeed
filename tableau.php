@@ -3,12 +3,20 @@
 // array indexé non organisé de tous les articles
 $itemArray = [];
 
+// $rssArray = [
+//     "files" => "https://www.01net.com/rss/actualites/buzz-societe/",
+//     "diapo" => "https://www.01net.com/rss/actualites/culture-medias/",
+//     "product" => "https://www.01net.com/rss/actualites/produits/",
+//     "apps" => "https://www.01net.com/rss/actualites/applis-logiciels/",
+//     "technos" => "https://www.01net.com/rss/actualites/technos/",
+// ];
+
 $rssArray = [
-    "files" => "https://www.01net.com/rss/actualites/buzz-societe/",
-    "diapo" => "https://www.01net.com/rss/actualites/culture-medias/",
-    "product" => "https://www.01net.com/rss/actualites/produits/",
-    "apps" => "https://www.01net.com/rss/actualites/applis-logiciels/",
-    "technos" => "https://www.01net.com/rss/actualites/technos/",
+    "files" => "https://rmcsport.bfmtv.com/rss/fil-sport/",
+    "diapo" => "https://rmcsport.bfmtv.com/rss/football/",
+    "product" => "https://rmcsport.bfmtv.com/rss/football/coupe-du-monde/",
+    "apps" => "https://rmcsport.bfmtv.com/rss/football/euro/",
+    "technos" => "https://rmcsport.bfmtv.com/rss/football/transferts/",
 ];
 
 // correspondance des catégories en français
@@ -42,7 +50,7 @@ foreach ($rssArray as $key => $value) {
             // on push dans l'array de façon désorganisée
             array_push($itemArray, $options);
             // si la catégorie n'existe pas dans l'array, on la crée
-            if(!isset($rssArray_categories[$key])) $rssArray_categories[$key] = [];
+            if (!isset($rssArray_categories[$key])) $rssArray_categories[$key] = [];
             // on push dans l'array par rapport au nom de la catégorie
             $rssArray_categories[$key][] = $options;
         } else {

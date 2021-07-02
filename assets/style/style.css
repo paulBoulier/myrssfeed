@@ -58,7 +58,7 @@ h5 {
     font-size: 1.1rem;
 }
 
-.titreCaroussel {
+.titreCarroussel {
     text-justify: auto;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 10%;
@@ -81,6 +81,11 @@ h5 {
     cursor: pointer;
 }
 
+.nav-link {
+    position: relative;
+    z-index: 1;
+}
+
 .nav-link::after {
     content: "";
     display: block;
@@ -88,4 +93,7 @@ h5 {
     height: .5rem;
     background-color: grey;
     border-radius: 100%;
+    position: absolute;
+    bottom: .5rem;
+    right: .25rem;
 }
