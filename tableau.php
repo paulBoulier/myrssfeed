@@ -4,8 +4,8 @@
 $itemArray = [];
 
 $rssArray = [
-    "files" => "https://www.01net.com/rss/actualite/",
-    "diapo" => "https://www.01net.com/rss/diaporama/",
+    "files" => "https://www.01net.com/rss/actualites/buzz-societe/",
+    "diapo" => "https://www.01net.com/rss/actualites/culture-medias/",
     "product" => "https://www.01net.com/rss/actualites/produits/",
     "apps" => "https://www.01net.com/rss/actualites/applis-logiciels/",
     "technos" => "https://www.01net.com/rss/actualites/technos/",
@@ -32,7 +32,7 @@ foreach ($rssArray as $key => $value) {
             // les clés que l'on aura dans notre array
             $options = [
                 "cat" => $key,
-                "title" => trim((string) $value->title),
+                "title" => (string) $value->title,
                 "link" => trim((string) $value->link),
                 "description" => trim($description[0]),
                 "src" => $src[0],
@@ -42,7 +42,7 @@ foreach ($rssArray as $key => $value) {
             // on push dans l'array de façon désorganisée
             array_push($itemArray, $options);
             // si la catégorie n'existe pas dans l'array, on la crée
-            if (!isset($rssArray[$key])) $rssArray_categories[$key] = [];
+            if(!isset($rssArray_categories[$key])) $rssArray_categories[$key] = [];
             // on push dans l'array par rapport au nom de la catégorie
             $rssArray_categories[$key][] = $options;
         } else {
