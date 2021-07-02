@@ -9,9 +9,8 @@ $pageArray = [];
 
 foreach ($newCategories as $key => $item) {
     if ($catNumber == $key) {
-        $newItem = $item;
         foreach ($rssArray as $key => $value) {
-            if ($newItem == $key) {
+            if ($item == $key) {
                 // valeur à incrémenter à chaque itération lorsque l'on parcours les items d'un flux (pour gérer les cas ou le flux est plus petit que 12 items)
                 $nbItem = 0;
                 $rssFlux = simplexml_load_file($value);
