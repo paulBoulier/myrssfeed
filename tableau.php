@@ -12,17 +12,10 @@ $itemArray = [];
 // ];
 
 $rssArray = [
-<<<<<<< HEAD
-    "files" => "https://rmcsport.bfmtv.com/rss/fil-sport/",
-    "diapo" => "https://rmcsport.bfmtv.com/rss/football/",
-    "product" => "https://rmcsport.bfmtv.com/rss/football/coupe-du-monde/",
-    "apps" => "https://rmcsport.bfmtv.com/rss/football/euro/",
-=======
     "files" => "https://rmcsport.bfmtv.com/rss/rugby/",
     "diapo" => "https://rmcsport.bfmtv.com/rss/basket/",
     "product" => "https://rmcsport.bfmtv.com/rss/tennis/",
     "apps" => "https://rmcsport.bfmtv.com/rss/cyclisme/",
->>>>>>> 8402575c9ab7bd3c457cf779cd7c420abefe0068
     "technos" => "https://rmcsport.bfmtv.com/rss/football/transferts/",
 ];
 

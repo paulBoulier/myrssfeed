@@ -56,11 +56,7 @@
     box-shadow: 0 0.25rem 1rem lightgrey;
 }
 
-<<<<<<< HEAD
 .titreCarroussel {
-=======
-h5 {
->>>>>>> 8402575c9ab7bd3c457cf779cd7c420abefe0068
     text-justify: auto;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 10%;
@@ -83,7 +79,6 @@ h5 {
     cursor: pointer;
 }
 
-<<<<<<< HEAD
 .nav-link {
     position: relative;
     z-index: 0;
@@ -103,15 +98,4 @@ h5 {
 
 .logo {
     max-width: 5rem;
-=======
-.carouselSize {
-    height: 30rem;
-    width: 100%;
-}
-
-@media screen and (max-width: 768px) {
-    .carouselSize {
-        height: 17rem;
-    }
->>>>>>> 8402575c9ab7bd3c457cf779cd7c420abefe0068
 }
