@@ -12,7 +12,6 @@
 <body class="<?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
     <?php
     include "../navbar.php";
-    include '../tableau.php';
     ?>
     <div class="row">
         <div class="container-fuid">

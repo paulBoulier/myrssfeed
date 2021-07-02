@@ -27,13 +27,13 @@ $selectedSubjects = !empty($_COOKIE) && null !== ($selected = $_COOKIE["selected
                     <label class="form-label">Choix du thème :</label>
                     <span class="errorMessage"><?= $errorMessage["errorTheme"] ?? '' ?></span>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="theme" id="themeDark" value="dark" checked>
+                        <input class="form-check-input" type="radio" name="theme" id="themeDark" value="dark" <?= isset($_COOKIE["theme"]) && $_COOKIE["theme"] == "dark" ? "checked" : "" ?>>
                         <label class="form-check-label" for="themeDark">
                             Dark
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="theme" id="themeLight" value="light">
+                        <input class="form-check-input" type="radio" name="theme" id="themeLight" value="light" <?= isset($_COOKIE["theme"]) && $_COOKIE["theme"] == "light" ? "checked" : "" ?>>
                         <label class="form-check-label" for="themeLight">
                             Light
                         </label>
@@ -43,19 +43,19 @@ $selectedSubjects = !empty($_COOKIE) && null !== ($selected = $_COOKIE["selected
                     <label class="form-label">Nombre d'article afficher :</label>
                     <span class="errorMessage"><?= $errorMessage["errorArticle"] ?? '' ?></span>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="article" id="six" value="6" checked>
+                        <input class="form-check-input" type="radio" name="article" id="six" value="6" <?= isset($_COOKIE["articleCount"]) && $_COOKIE["articleCount"] == "6" ? "checked" : "" ?>>
                         <label class="form-check-label" for="six">
                             6
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="article" id="nine" value="9">
+                        <input class="form-check-input" type="radio" name="article" id="nine" value="9" <?= isset($_COOKIE["articleCount"]) && $_COOKIE["articleCount"] == "9" ? "checked" : "" ?>>
                         <label class="form-check-label" for="nine">
                             9
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="article" id="twelve" value="12">
+                        <input class="form-check-input" type="radio" name="article" id="twelve" value="12" <?= isset($_COOKIE["articleCount"]) && $_COOKIE["articleCount"] == "12" ? "checked" : "" ?> <?= empty($_COOKIE["articleCount"]) ? "checked" : "" ?>>
                         <label class="form-check-label" for="twelve">
                             12
                         </label>

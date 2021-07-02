@@ -28,7 +28,7 @@ foreach ($rssArray as $key => $value) {
     $allowed_articleCount = [6, 9, 12];
 
     foreach ($rssFlux->channel->item as $value) {
-        if ($nbItem < (!empty($_COOKIE) && in_array($_COOKIE["articleCount"], $allowed_articleCount) ? $_COOKIE["articleCount"] : 12)) {
+        if ($nbItem < (!empty($_COOKIE) && isset($_COOKIE["articleCount"]) && in_array($_COOKIE["articleCount"], $allowed_articleCount) ? $_COOKIE["articleCount"] : 12)) {
             // on découpe la valeur description du rss qui contient la description et l'image
             preg_match("/[^<]+(?=<)/", $value->description, $description);
             preg_match("/(?<=src=\").+(?=\")/", $value->description, $src);
