@@ -20,7 +20,7 @@ $navbar_decode = decode_arr("selectedSubjects", $_COOKIE);
 ?>
 <nav class="navbar navbar-expand-lg <?= (!empty($_COOKIE) && $_COOKIE["theme"] == "dark") ? "navbar-dark bg-dark" : "navbar-light bg-light" ?>">
     <div class="container-fluid">
-        <a class="navbar-brand" href="./accueil.html">Accueil</a>
+        <a class="navbar-brand" href="./accueil.html"><img src="/assets/img/logo.jpg" class="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,11 +28,10 @@ $navbar_decode = decode_arr("selectedSubjects", $_COOKIE);
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <?php if (!empty($_COOKIE)) : ?>
                     <?php for ($i = 0; $i < count($navbar_decode); $i++) : ?>
+                        <?php $category_position = array_search($navbar_decode[$i], array_keys($categories)) + 1; ?>
                         <?php if (in_array($navbar_decode[$i], array_keys($categories))) : ?>
                             <li class="nav-item">
-                                <div>
-                                    <a class="nav-link active" aria-current="page" href="./sujet<?= array_search($navbar_decode[$i], array_keys($categories)) + 1 ?>.html"><?= $categories[$navbar_decode[$i]] ?></a>
-                                </div>
+                                <a class="nav-link active link-category-<?= $category_position ?>" aria-current="page" href="./sujet<?= $category_position ?>.html"><?= $categories[$navbar_decode[$i]] ?></a>
                             </li>
                         <?php endif; ?>
                     <?php endfor; ?>
