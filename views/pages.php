@@ -12,15 +12,12 @@
 <body class="<?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
     <?php
     include "../navbar.php";
-    include '../tableau.php';
     ?>
-    <div class="row">
-        <div class="container-fuid">
-            <h1 class="text-center"><?= $categories[array_keys($categories)[$_GET["q"] - 1]] ?></h1>
-            <?php
-            require '../controllers/pages-controller.php';
-            ?>
-        </div>
+    <div class="container">
+        <h1 class="text-center mb-4"><?= $categories[array_keys($categories)[$_GET["q"] - 1]] ?></h1>
+        <?php
+        require '../controllers/pages-controller.php';
+        ?>
     </div>
 </body>
 
