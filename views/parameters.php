@@ -100,6 +100,9 @@ $selectedSubjects = !empty($_COOKIE) && null !== ($selected = $_COOKIE["selected
                 <div class="col-1">
                     <input type="submit" name="submit" class="btn btn-primary" value="Envoyer">
                 </div>
+                <div class="col-1">
+                    <a href="index.php"><input type="button" class="btn btn-danger" value="Retour"></a>
+                </div>
             </div>
         </form>
     </div>
