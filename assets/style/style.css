@@ -50,3 +50,14 @@
 .card-light {
     box-shadow: 0 0.25rem 1rem lightgrey;
 }
+
+h5{
+    text-justify: auto;
+    background-color: rgba(0,0,0,0.6);
+    padding: 10%;
+    font-size: 1.1rem;
+}
+
+.carouselSize{
+    height: 15rem;
+}
