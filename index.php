@@ -18,6 +18,7 @@ include "toolDate.php";
 
 <body class="<?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
     <?php include "navbar.php" ?>
+    <?php include "carroussel.php" ?>
     <main class="container">
         <?php
         foreach ($itemRsort as $item) :
