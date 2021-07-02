@@ -18,34 +18,40 @@ include "toolDate.php";
 
 <body class="<?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
     <?php include "navbar.php" ?>
+    <?php include "carroussel.php" ?>
     <h1 class="text-center mb-4">Tous les articles sélectionnés</h1>
     <main class="container">
         <?php
+        $categoriesCount = ["files" => 0, "diapo" => 0, "product" => 0, "apps" => 0, "technos" => 0];
         foreach ($itemRsort as $item) :
-            setlocale(LC_TIME, 'fr_FR', "fra");
-            $newDate = "Le " . strftime("%A %e %B %Y", strtotime($item["date"]));
-        ?>
-            <div class="card m-3 mx-auto <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark border-light card-dark" : "card-light" ?>" style="max-width: 56.5rem">
-                <div class="card-body d-flex">
-                    <img class="align-self-start" src="<?= $item["src"] ?>">
-                    <div class="ps-2 flex-grow-1">
-                        <!-- catégorie et timer -->
-                        <div>
-                            <span class="category-<?= array_search($item["cat"], array_keys($categories)) + 1 ?>"><?= $categories[$item["cat"]] ?></span>
-                            <span><b class="timer"><?= getTime($item["date"]) ?></b></span>
-                        </div>
-                        <!-- titre de l'article -->
-                        <p><?= $item["title"] ?></p>
-                        <!-- boutons -->
-                        <div class="d-inline-block float-end">
-                            <button id="modalButton" type="button" class="btn fs-4 <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light" : "" ?>" data-bs-toggle="modal" data-bs-target="#item" data-title="<?= $item["title"] ?>" data-img="<?= $item["image"] ?>" data-desc="<?= $item["description"] ?>" data-link="<?= $item["link"] ?>" data-date="<?= $newDate ?>">
-                                <i class="bi bi-search"></i>
-                            </button>
-                            <a class="btn <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light" : "" ?>" href="<?= $item["link"] ?>" target="_blank">Lien vers l'article</a>
+            if (in_array($item["cat"], $navbar_decode)) {
+                if ($categoriesCount[$item["cat"]] == 1) {
+                    setlocale(LC_TIME, 'fr_FR', "fra");
+                    $newDate = "Le " . strftime("%A %e %B %Y", strtotime($item["date"])); ?>
+                    <div class="card m-3 mx-auto <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark border-light card-dark" : "card-light" ?>" style="max-width: 56.5rem">
+                        <div class="card-body d-flex">
+                            <img class="align-self-start" src="<?= $item["src"] ?>">
+                            <div class="ps-2 flex-grow-1">
+                                <!-- catégorie et timer -->
+                                <div>
+                                    <span class="category-<?= array_search($item["cat"], array_keys($categories)) + 1 ?>"><?= $categories[$item["cat"]] ?></span>
+                                    <span><b class="timer"><?= getTime($item["date"]) ?></b></span>
+                                </div>
+                                <!-- titre de l'article -->
+                                <p><?= $item["title"] ?></p>
+                                <!-- boutons -->
+                                <div class="d-inline-block float-end">
+                                    <button id="modalButton" type="button" class="btn fs-4 <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light" : "" ?>" data-bs-toggle="modal" data-bs-target="#item" data-title="<?= $item["title"] ?>" data-img="<?= $item["image"] ?>" data-desc="<?= $item["description"] ?>" data-link="<?= $item["link"] ?>" data-date="<?= $newDate ?>">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                    <a class="btn <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light" : "" ?>" href="<?= $item["link"] ?>" target="_blank">Lien vers l'article</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                <?php } ?>
+                <?php $categoriesCount[$item["cat"]] = 1 ?>
+            <?php } ?>
         <?php endforeach; ?>
     </main>
     <!-- modal -->

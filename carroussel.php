@@ -44,19 +44,19 @@ if (!empty($bonjour)) {
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="<?= $carrousselImage[0] ?>" class="d-block w-100" alt="...">
+      <img src="<?= $carrousselImage[0] ?>" class="d-block w-100">
       <div class="carousel-caption d-none d-md-block">
         <h5><?= $carrousselTitle[0] ?></h5>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="<?= $carrousselImage[1] ?>" class="d-block w-100" alt="...">
+      <img src="<?= $carrousselImage[1] ?>" class="d-block w-100">
       <div class="carousel-caption d-none d-md-block">
         <h5><?= $carrousselTitle[1] ?></h5>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="<?= $carrousselImage[2] ?>" class="d-block w-100" alt="...">
+      <img src="<?= $carrousselImage[2] ?>" class="d-block w-100">
       <div class="carousel-caption d-none d-md-block">
         <h5><?= $carrousselTitle[2] ?></h5>
       </div>
