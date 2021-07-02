@@ -14,7 +14,7 @@
     include "../navbar.php";
     ?>
     <div class="row">
-        <div class="container-fuid">
+        <div class="container">
             <h1 class="text-center"><?= $categories[array_keys($categories)[$_GET["q"] - 1]] ?></h1>
             <?php
             require '../controllers/pages-controller.php';
