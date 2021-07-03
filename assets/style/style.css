@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "'D-DIN-Condensed'";
+    src: url("../D-DIN-Condensed.ttf.woff") format("woff");
+}
+
+* {
+    font-family: "'D-DIN-Condensed'";
+}
+
 .link-category-1::after,
 .category-1 {
     background-color: red;
@@ -48,12 +57,13 @@
 }
 
 .card-dark {
-    box-shadow: 0 0.25rem 1rem #961c44;
-    border-color: #961c44 !important;
+    box-shadow: 0 .0625rem .5rem #961c44;
+    border-color: transparent !important;
 }
 
 .card-light {
-    box-shadow: 0 0.25rem 1rem lightgrey;
+    box-shadow: 0 0.625rem 1rem lightgrey;
+    border-color: transparent !important;
 }
 
 .titreCarroussel {
