@@ -7,6 +7,23 @@
     font-family: "'D-DIN-Condensed'";
 }
 
+.color-btn-primary {
+    background-color: #961c44;
+    border-color: #961c44;
+}
+
+.color-btn-primary:hover {
+    background-color: hsl(340, 69%, 30%);
+    border-color: hsl(340, 69%, 30%);
+}
+
+.color-btn-primary:focus,
+.color-btn-primary:active {
+    background-color: hsl(340, 69%, 25%);
+    border-color: hsl(340, 69%, 25%);
+    box-shadow: 0 0 0 0.25rem hsla(340, 58%, 31%, 0.5);
+}
+
 .link-category-1::after,
 .category-1 {
     background-color: red;
@@ -94,7 +111,11 @@
     z-index: 0;
 }
 
-.nav-link::after {
+.link-category {
+    position: relative;
+}
+
+.link-category::after {
     content: "";
     display: block;
     width: .5rem;
@@ -102,8 +123,8 @@
     z-index: -1;
     border-radius: 100%;
     position: absolute;
-    bottom: .5rem;
-    right: .25rem;
+    bottom: -.125rem;
+    right: -.25rem;
 }
 
 .logo {

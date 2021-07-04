@@ -95,8 +95,8 @@ $selectedSubjects = !empty($_COOKIE) && null !== ($selected = $_COOKIE["selected
                     </div>
                     <span class="errorMessage d-block"><?= $errorMessage["errorFlux"] ?? '' ?></span>
                     <div class="text-center mt-5">
-                        <input type="submit" name="submit" class="btn btn-primary" value="Envoyer">
-                        <a href="index.php"><input type="button" class="btn btn-danger" value="Retour"></a>
+                        <input type="submit" name="submit" class="btn btn-primary rounded-0 color-btn-primary" value="Envoyer">
+                        <a href="index.php"><input type="button" class="btn btn-secondary rounded-0" value="Retour"></a>
                     </div>
                 </div>
             </div>

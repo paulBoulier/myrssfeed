@@ -31,7 +31,7 @@ $navbar_decode = decode_arr("selectedSubjects", $_COOKIE);
                         <?php $category_position = array_search($navbar_decode[$i], array_keys($categories)) + 1; ?>
                         <?php if (in_array($navbar_decode[$i], array_keys($categories))) : ?>
                             <li class="nav-item">
-                                <a class="nav-link active link-category-<?= $category_position ?>" aria-current="page" href="./sujet<?= $category_position ?>.html"><?= $categories[$navbar_decode[$i]] ?></a>
+                                <a class="nav-link active" aria-current="page" href="./sujet<?= $category_position ?>.html"><span class="link-category link-category-<?= $category_position ?>"><?= $categories[$navbar_decode[$i]] ?></span></a>
                             </li>
                         <?php endif; ?>
                     <?php endfor; ?>
