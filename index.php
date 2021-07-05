@@ -70,7 +70,9 @@ include "toolDate.php";
             <div class="container">
                 <div class="d-flex flex-column text-center justify-content-center vh-100 w-100">
                     <p class="display-5">Les paramètres n'ont pas été selectionnés</p>
-                    <a href="parametre.html"><button type="button" class="btn btn-secondary">Parametre</button></a>
+                    <div>
+                        <a class="btn btn-secondary rounded-0" href="parametre.html">Parametre</a>
+                    </div>
                 </div>
             </div>
 
