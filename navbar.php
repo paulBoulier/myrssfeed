@@ -20,11 +20,7 @@ $navbar_decode = decode_arr("selectedSubjects", $_COOKIE);
 ?>
 <nav class="navbar navbar-expand-lg <?= (!empty($_COOKIE) && $_COOKIE["theme"] == "dark") ? "navbar-dark bg-dark" : "navbar-light bg-light" ?>">
     <div class="container-fluid">
-<<<<<<< HEAD
         <a class="navbar-brand" href="./accueil.html"><img src="assets/img/logo.jpg" class="logo"></a>
-=======
-        <a class="navbar-brand" href="./accueil.html"><img src="./assets/img/logo.jpg" class="logo"></a>
->>>>>>> 274673840f327bfd7551407fecc7898bacfd7c2c
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
