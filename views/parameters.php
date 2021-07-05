@@ -12,7 +12,7 @@ $selectedSubjects = !empty($_COOKIE) && null !== ($selected = $_COOKIE["selected
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style/style.css">
-    <title>Document</title>
+    <title>JPB - Paramètres</title>
 </head>
 
 <body class="<?= (!empty($_COOKIE) && $_COOKIE["theme"] == "dark") ? "bg-dark text-light" : "" ?>">
@@ -21,7 +21,7 @@ $selectedSubjects = !empty($_COOKIE) && null !== ($selected = $_COOKIE["selected
         <div class="row mt-3">
             <h1 class="text-center">Paramètres</h1>
         </div>
-        <form action="parametre.html" method="POST">
+        <form class="mb-5" action="parametre.html" method="POST">
             <div class="row d-flex flex-column align-items-center mt-5">
                 <div class="col-lg-3">
                     <label class="form-label">Choix du thème :</label>

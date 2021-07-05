@@ -10,7 +10,7 @@ include "toolDate.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JPB - FLux sélectionnés</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/style/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -21,8 +21,8 @@ include "toolDate.php";
     <body class="<?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
         <?php include "navbar.php" ?>
         <?php include "carroussel.php" ?>
-        <h1 class="text-center mb-4">Tous les articles sélectionnés</h1>
-        <main class="container mb-5">
+        <h1 class="text-center mb-4">Tous les flux sélectionnés</h1>
+        <main class="container margin-bottom">
             <?php
             $categoriesCount = ["files" => 0, "diapo" => 0, "product" => 0, "apps" => 0, "technos" => 0];
             foreach ($itemRsort as $item) :
