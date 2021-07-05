@@ -30,7 +30,7 @@ include "toolDate.php";
                     if ($categoriesCount[$item["cat"]] == 1) {
                         setlocale(LC_TIME, 'fr_FR', "fra");
                         $newDate = "Le " . strftime("%A %e %B %Y", strtotime($item["date"])); ?>
-                        <div id="modalButton" class="card mx-auto my-0 <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark border-light card-dark" : "card-light" ?>" style="max-width: 56.5rem" data-bs-toggle="modal" data-bs-target="#item" data-title="<?= $item["title"] ?>" data-img="<?= $item["image"] ?>" data-desc="<?= $item["description"] ?>" data-link="<?= $item["link"] ?>" data-date="<?= $newDate ?>">
+                        <div id="modalButton" class="card mx-auto my-0 rounded-0 <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark border-light card-dark" : "card-light" ?>" style="max-width: 56.5rem" data-bs-toggle="modal" data-bs-target="#item" data-title="<?= $item["title"] ?>" data-img="<?= $item["image"] ?>" data-desc="<?= $item["description"] ?>" data-link="<?= $item["link"] ?>" data-date="<?= $newDate ?>">
                             <div class="card-body d-flex cursor-pointer">
                                 <div class="ps-2 flex-grow-1">
                                     <!-- catégorie et timer -->
@@ -51,7 +51,7 @@ include "toolDate.php";
         <!-- modal -->
         <div class="modal fade" id="item" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
+                <div class="modal-content rounded-0 <?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
                     <div class="modal-header d-flex flex-column text-center border-0">
                         <h5 class="modal-title mb-2" id="exampleModalLabel"></h5>
                         <p id="dateModal"></p>
@@ -59,8 +59,8 @@ include "toolDate.php";
                     <img id="imgModal">
                     <div class="modal-body" id="descModal"></div>
                     <div class="modal-footer border-0">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                        <a id="linkArticle"><button type="button" class="btn btn-primary">Lien Article</button></a>
+                        <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">Fermer</button>
+                        <a id="linkArticle"><button type="button" class="btn btn-primary rounded-0 color-btn-primary">Lien Article</button></a>
                     </div>
                 </div>
             </div>

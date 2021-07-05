@@ -1,41 +1,16 @@
 <?php
-// var_dump($itemRsort);
-$bonjour = json_decode($_COOKIE["selectedSubjects"]);
-if (!empty($bonjour)) {
-  foreach ($bonjour as $value) {
-    $lesCookies[] = $value;
-  }
-
-  $firstCookie = $lesCookies[0];
-  $secondCookie = $lesCookies[1];
-  $thirdCookie = $lesCookies[2];
-
-  $carrousselImage = [];
-  $carrousselTitle = [];
-  $carrousselLink = [];
-
-  $fluxCarroussel = simplexml_load_file($rssArray[$firstCookie]);
-  foreach ($fluxCarroussel->channel->item as $value) {
-    array_push($carrousselImage, (string)$value->enclosure["url"]);
-    array_push($carrousselTitle, (string) $value->title);
-    array_push($carrousselLink, (string) $value->link);
-    break;
-  }
-
-  $fluxCarroussel = simplexml_load_file($rssArray[$secondCookie]);
-  foreach ($fluxCarroussel->channel->item as $value) {
-    array_push($carrousselImage, (string)$value->enclosure["url"]);
-    array_push($carrousselTitle, (string) $value->title);
-    array_push($carrousselLink, (string) $value->link);
-    break;
-  }
-
-  $fluxCarroussel = simplexml_load_file($rssArray[$thirdCookie]);
-  foreach ($fluxCarroussel->channel->item as $value) {
-    array_push($carrousselImage, (string)$value->enclosure["url"]);
-    array_push($carrousselTitle, (string) $value->title);
-    array_push($carrousselLink, (string) $value->link);
-    break;
+$carroussel = [];
+$selectedSubjects = json_decode($_COOKIE["selectedSubjects"]);
+if($selectedSubjects && is_array($selectedSubjects)) {
+  foreach($selectedSubjects as $selectedSubject) {
+    if(in_array($selectedSubject, array_keys($rssArray))) {
+      $current = current($rssArray_categories[$selectedSubject]);
+      $carroussel[] = [
+        "link" => $current["link"],
+        "image" => $current["image"],
+        "title" => $current["title"]
+      ];
+    }
   }
 }
 ?>
@@ -47,24 +22,15 @@ if (!empty($bonjour)) {
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <a href="<?= $carrousselLink[0] ?>" target="blank"><img src="<?= $carrousselImage[0] ?>" class="carrouselSize "></a>
-      <div class="carousel-caption ">
-        <h5 class="titreCarroussel"><?= $carrousselTitle[0] ?></h5>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <a href="<?= $carrousselLink[1] ?>" target="blank"><img src="<?= $carrousselImage[1] ?>" class="carrouselSize "></a>
-      <div class="carousel-caption">
-        <h5 class="titreCarroussel"><?= $carrousselTitle[1] ?></h5>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <a href="<?= $carrousselLink[2] ?>" target="blank"><img src="<?= $carrousselImage[2] ?>" class="carrouselSize"></a>
-      <div class="carousel-caption">
-        <h5 class="titreCarroussel"><?= $carrousselTitle[2] ?></h5>
-      </div>
-    </div>
+    <?php
+      foreach($carroussel as $key => $item): ?>
+        <div class="carousel-item <?=$key == 0 ? "active" : ""?>">
+          <a href="<?= $item["link"] ?>" target="blank"><img src="<?= $item["image"] ?>" class="carrouselSize "></a>
+          <div class="carousel-caption ">
+            <h5 class="titreCarroussel"><?= $item["title"] ?></h5>
+          </div>
+        </div>
+      <?php endforeach; ?>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

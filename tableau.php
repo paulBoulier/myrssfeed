@@ -11,6 +11,14 @@ $rssArray = [
     "technos" => "https://www.01net.com/rss/actualites/technos/",
 ];
 
+// $rssArray = [
+//     "files" => "https://rmcsport.bfmtv.com/rss/rugby/",
+//     "diapo" => "https://rmcsport.bfmtv.com/rss/basket/",
+//     "product" => "https://rmcsport.bfmtv.com/rss/tennis/",
+//     "apps" => "https://rmcsport.bfmtv.com/rss/cyclisme/",
+//     "technos" => "https://rmcsport.bfmtv.com/rss/football/transferts/",
+// ];
+
 // correspondance des catégories en français
 $categories = ["files" => "Actualité", "diapo" => "Diaporama", "product" => "Produits", "apps" => "Applis-Logiciels", "technos" => "Technos"];
 
