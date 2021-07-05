@@ -18,7 +18,7 @@ $selectedSubjects = !empty($_COOKIE) && null !== ($selected = $_COOKIE["selected
 
 <body class="<?= (!empty($_COOKIE) && $_COOKIE["theme"] == "dark") ? "bg-dark text-light" : "" ?>">
     <?php include "../navbar.php" ?>
-    <div class="container-fluid">
+    <div class="margin-bottom container-fluid">
         <div class="row mt-3">
             <h1 class="text-center">Paramètres</h1>
         </div>
