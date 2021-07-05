@@ -17,9 +17,16 @@ if ($selectedSubjects && is_array($selectedSubjects)) {
 
 <div id="carouselExampleCaptions" class="carousel slide m-3 mx-auto border border-0" data-bs-ride="carousel" style="max-width: 56.5rem">
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <?php if (count(json_decode($_COOKIE["selectedSubjects"])) == 3) { ?>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <?php } else if (count(json_decode($_COOKIE["selectedSubjects"])) == 2) { ?>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <?php } else if (count(json_decode($_COOKIE["selectedSubjects"])) == 1) { ?>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <?php } ?>
   </div>
   <div class="carousel-inner">
     <?php

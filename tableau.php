@@ -49,10 +49,6 @@ foreach ($rssArray as $key => $value) {
             ];
             // on push dans l'array de façon désorganisée
             array_push($itemArray, $options);
-            // si la catégorie n'existe pas dans l'array, on la crée
-            if (!isset($rssArray_categories[$key])) $rssArray_categories[$key] = [];
-            // on push dans l'array par rapport au nom de la catégorie
-            $rssArray_categories[$key][] = $options;
         } else {
             break;
         }
@@ -84,3 +80,10 @@ foreach ($itemArray as $value) {
 
 // on réorganise les clés du talbeau $itemRsort car elles sont mélangées
 ksort($itemRsort);
+
+foreach ($itemRsort as $value) {
+    // si la catégorie n'existe pas dans l'array, on la crée
+    if (!isset($rssArray_categories[$value["cat"]])) $rssArray_categories[$value["cat"]] = [];
+    // on push dans l'array par rapport au nom de la catégorie
+    $rssArray_categories[$value["cat"]][] = $value;
+}
