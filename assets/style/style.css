@@ -110,6 +110,11 @@
     flex-direction: row;
 }
 
+
+.margin-bottom{
+    margin-bottom: 6.25rem;
+}
+
 .nav-link {
     position: relative;
     z-index: 0;
