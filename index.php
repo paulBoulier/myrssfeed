@@ -16,12 +16,12 @@ include "toolDate.php";
 </head>
 
 
-<body class="<?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
-    <?php if (!empty($_COOKIE)) { ?>
+<body class="<?= !empty($_COOKIE) && isset($_COOKIE["theme"]) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
+    <?php if (!empty($_COOKIE) && isset($_COOKIE["selectedSubjects"])) { ?>
         <?php include "navbar.php" ?>
         <?php include "carroussel.php" ?>
         <h1 class="text-center mb-4">Tous les articles sélectionnés</h1>
-        <main class="container mb-5">
+        <main class="container margin-bottom">
             <?php
             $categoriesCount = ["files" => 0, "diapo" => 0, "product" => 0, "apps" => 0, "technos" => 0];
             foreach ($itemRsort as $item) :

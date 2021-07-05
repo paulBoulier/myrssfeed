@@ -4,7 +4,7 @@ include "tableau.php";
 
 function decode_arr($keyName, $array)
 {
-    if (empty($array) || !isset($array[$keyName])) {
+    if (empty($array) || !isset($array[$keyName]) || empty($array[$keyName])) {
         return [];
     }
 
@@ -26,23 +26,23 @@ $rss_icon = [
 // var_dump($categories);
 
 ?>
-<nav class="navbar fixed-bottom <?= (!empty($_COOKIE) && $_COOKIE["theme"] == "dark") ? "navbar-dark bg-dark" : "navbar-light bg-light" ?>">
+<nav class="navbar fixed-bottom <?= !empty($_COOKIE) && isset($_COOKIE["theme"]) && $_COOKIE["theme"] == "dark" ? "navbar-dark bg-dark" : "navbar-light bg-light" ?>">
     <div class="container-fluid flex-nowrap">
         <a class="navbar-brand" href="./accueil.html"><img src="assets/img/logo.jpg" class="logo"></a>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-around w-100">
-                <?php if (!empty($_COOKIE)) : ?>
-                    <?php for ($i = 0; $i < count($navbar_decode); $i++) : ?>
-                        <?php $category_position = array_search($navbar_decode[$i], array_keys($categories)) + 1; ?>
-                        <?php if (in_array($navbar_decode[$i], array_keys($rss_icon))) : ?>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="./sujet<?= $category_position ?>.html"><span class="link-category link-category-<?= $category_position ?>"><?= $rss_icon[$navbar_decode[$i]] ?></span></a>
-                            </li>
-                        <?php endif; ?>
-                    <?php endfor; ?>
-                <?php endif; ?>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./parametre.html"><i class="bi bi-gear fs-1"></i></a>
-                </li>
-            </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-around w-100">
+            <?php if (!empty($_COOKIE)) : ?>
+                <?php for ($i = 0; $i < count($navbar_decode); $i++) : ?>
+                    <?php $category_position = array_search($navbar_decode[$i], array_keys($categories)) + 1; ?>
+                    <?php if (in_array($navbar_decode[$i], array_keys($rss_icon))) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./sujet<?= $category_position ?>.html"><span class="link-category link-category-<?= $category_position ?>"><?= $rss_icon[$navbar_decode[$i]] ?></span></a>
+                        </li>
+                    <?php endif; ?>
+                <?php endfor; ?>
+            <?php endif; ?>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./parametre.html"><i class="bi bi-gear fs-1"></i></a>
+            </li>
+        </ul>
     </div>
 </nav>

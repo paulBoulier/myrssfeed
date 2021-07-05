@@ -106,12 +106,12 @@
     cursor: pointer;
 }
 
-.navbar-nav{
+.navbar-nav {
     flex-direction: row;
 }
 
 
-.margin-bottom{
+.margin-bottom {
     margin-bottom: 6.25rem;
 }
 
@@ -138,4 +138,14 @@
 
 .logo {
     max-width: 5rem;
+}
+
+.error-title {
+    line-height: 3rem;
+}
+
+.error-title .error {
+    padding: 1rem 1.5rem;
+    color: white;
+    background-color: #36234d;
 }
