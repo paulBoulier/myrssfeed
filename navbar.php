@@ -4,7 +4,7 @@ include "tableau.php";
 
 function decode_arr($keyName, $array)
 {
-    if (empty($array) || !isset($array[$keyName])) {
+    if (empty($array) || !isset($array[$keyName]) || empty($array[$keyName])) {
         return [];
     }
 
@@ -15,31 +15,34 @@ function decode_arr($keyName, $array)
 // $navbar_decode = ex: ["Technos", "Applis, Logiciels", "Diaporama"]
 $navbar_decode = decode_arr("selectedSubjects", $_COOKIE);
 
+$rss_icon = [
+    "files" => '<i class="bi bi-newspaper fs-1"></i>',
+    "diapo" => '<i class="bi bi-camera-video-fill fs-1"></i>',
+    "product" => '<i class="bi bi-box-seam fs-1"></i>',
+    "apps" => '<i class="bi bi-phone fs-1"></i>',
+    "technos" => '<i class="bi bi-cpu-fill fs-1"></i>'
+];
+
 // var_dump($categories);
 
 ?>
-<nav class="navbar navbar-expand-lg <?= (!empty($_COOKIE) && $_COOKIE["theme"] == "dark") ? "navbar-dark bg-dark" : "navbar-light bg-light" ?>">
-    <div class="container-fluid">
+<nav class="navbar fixed-bottom <?= !empty($_COOKIE) && isset($_COOKIE["theme"]) && $_COOKIE["theme"] == "dark" ? "navbar-dark bg-dark" : "navbar-light bg-light" ?>">
+    <div class="container-fluid flex-nowrap">
         <a class="navbar-brand" href="./accueil.html"><img src="assets/img/logo.jpg" class="logo"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <?php if (!empty($_COOKIE)) : ?>
-                    <?php for ($i = 0; $i < count($navbar_decode); $i++) : ?>
-                        <?php $category_position = array_search($navbar_decode[$i], array_keys($categories)) + 1; ?>
-                        <?php if (in_array($navbar_decode[$i], array_keys($categories))) : ?>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="./sujet<?= $category_position ?>.html"><span class="link-category link-category-<?= $category_position ?>"><?= $categories[$navbar_decode[$i]] ?></span></a>
-                            </li>
-                        <?php endif; ?>
-                    <?php endfor; ?>
-                <?php endif; ?>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./parametre.html">Paramètres</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-around w-100">
+            <?php if (!empty($_COOKIE)) : ?>
+                <?php for ($i = 0; $i < count($navbar_decode); $i++) : ?>
+                    <?php $category_position = array_search($navbar_decode[$i], array_keys($categories)) + 1; ?>
+                    <?php if (in_array($navbar_decode[$i], array_keys($rss_icon))) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./sujet<?= $category_position ?>.html"><span class="link-category link-category-<?= $category_position ?>"><?= $rss_icon[$navbar_decode[$i]] ?></span></a>
+                        </li>
+                    <?php endif; ?>
+                <?php endfor; ?>
+            <?php endif; ?>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./parametre.html"><i class="bi bi-gear fs-1"></i></a>
+            </li>
+        </ul>
     </div>
 </nav>

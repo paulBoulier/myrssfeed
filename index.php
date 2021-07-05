@@ -1,8 +1,7 @@
 <?php
-
 include "toolDate.php";
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,18 +9,18 @@ include "toolDate.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JPB - FLux sélectionnés</title>
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/style/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/style/style.css">
 </head>
 
-<?php if (!empty($_COOKIE)) { ?>
 
-    <body class="<?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
+<body class="<?= !empty($_COOKIE) && isset($_COOKIE["theme"]) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
+    <?php if (!empty($_COOKIE) && isset($_COOKIE["selectedSubjects"])) { ?>
         <?php include "navbar.php" ?>
         <?php include "carroussel.php" ?>
-        <h1 class="text-center mb-4">Tous les flux sélectionnés</h1>
+        <h1 class="text-center mb-4">Tous les articles sélectionnés</h1>
         <main class="container margin-bottom">
             <?php
             $categoriesCount = ["files" => 0, "diapo" => 0, "product" => 0, "apps" => 0, "technos" => 0];
@@ -67,11 +66,16 @@ include "toolDate.php";
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
             <script src="assets/js/script.js"></script>
+        <?php } else { ?>
+            <div class="container">
+                <div class="d-flex flex-column text-center justify-content-center vh-100 w-100">
+                    <p class="display-5">Les paramètres n'ont pas été selectionnés</p>
+                    <a href="parametre.html"><button type="button" class="btn btn-secondary">Parametre</button></a>
+                </div>
+            </div>
 
-    </body>
-<?php } else {
-    header("Location: parametre.html");
-}
-?>
+        <?php } ?>
+</body>
+
 
 </html>

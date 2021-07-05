@@ -54,7 +54,3 @@ function getTime($myDate)
     return $res;
 }
 ?>
-
-</body>
-
-</html>

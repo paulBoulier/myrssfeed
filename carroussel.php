@@ -1,9 +1,9 @@
 <?php
 $carroussel = [];
-$selectedSubjects = json_decode($_COOKIE["selectedSubjects"]);
-if($selectedSubjects && is_array($selectedSubjects)) {
-  foreach($selectedSubjects as $selectedSubject) {
-    if(in_array($selectedSubject, array_keys($rssArray))) {
+$selectedSubjects = isset($_COOKIE["selectedSubjects"]) ? json_decode($_COOKIE["selectedSubjects"]) : false;
+if ($selectedSubjects && is_array($selectedSubjects)) {
+  foreach ($selectedSubjects as $selectedSubject) {
+    if (in_array($selectedSubject, array_keys($rssArray))) {
       $current = current($rssArray_categories[$selectedSubject]);
       $carroussel[] = [
         "link" => $current["link"],
@@ -23,14 +23,14 @@ if($selectedSubjects && is_array($selectedSubjects)) {
   </div>
   <div class="carousel-inner">
     <?php
-      foreach($carroussel as $key => $item): ?>
-        <div class="carousel-item <?=$key == 0 ? "active" : ""?>">
-          <a href="<?= $item["link"] ?>" target="blank"><img src="<?= $item["image"] ?>" class="carrouselSize "></a>
-          <div class="carousel-caption ">
-            <h5 class="titreCarroussel"><?= $item["title"] ?></h5>
-          </div>
+    foreach ($carroussel as $key => $item) : ?>
+      <div class="carousel-item <?= $key == 0 ? "active" : "" ?>">
+        <a href="<?= $item["link"] ?>" target="blank"><img src="<?= $item["image"] ?>" class="carrouselSize "></a>
+        <div class="carousel-caption ">
+          <h5 class="titreCarroussel"><?= $item["title"] ?></h5>
         </div>
-      <?php endforeach; ?>
+      </div>
+    <?php endforeach; ?>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

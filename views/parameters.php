@@ -1,7 +1,7 @@
 <?php
 require '../controllers/parameters-controller.php';
 
-$selectedSubjects = !empty($_COOKIE) && null !== ($selected = $_COOKIE["selectedSubjects"]) && ($decode = json_decode($selected)) ? $decode : [];
+$selectedSubjects = !empty($_COOKIE) && isset($_COOKIE["selectedSubjects"]) && null !== ($selected = $_COOKIE["selectedSubjects"]) && ($decode = json_decode($selected)) ? $decode : [];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,12 +12,13 @@ $selectedSubjects = !empty($_COOKIE) && null !== ($selected = $_COOKIE["selected
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <title>JPB - Paramètres</title>
 </head>
 
-<body class="<?= (!empty($_COOKIE) && $_COOKIE["theme"] == "dark") ? "bg-dark text-light" : "" ?>">
+<body class="<?= !empty($_COOKIE) && isset($_COOKIE["theme"]) && $_COOKIE["theme"] == "dark" ? "bg-dark text-light" : "" ?>">
     <?php include "../navbar.php" ?>
-    <div class="container-fluid">
+    <div class="container-fluid margin-bottom">
         <div class="row mt-3">
             <h1 class="text-center">Paramètres</h1>
         </div>

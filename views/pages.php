@@ -8,13 +8,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>JPB - sujet du flux</title>
     <link rel="stylesheet" href="./assets/style/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 
-<body class="<?= !empty($_COOKIE) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
+<body class="<?= !empty($_COOKIE) && isset($_COOKIE["theme"]) && $_COOKIE["theme"] == "dark" ? "text-light bg-dark" : "" ?>">
     <?php
     include "../navbar.php";
+
+    $page_name = array_keys($categories)[$_GET["q"] - 1];
+
+    $all_cookies_names = decode_arr("selectedSubjects", $_COOKIE);
+
+    if (!in_array($page_name, $all_cookies_names)) {
+        header("Location: ../accueil.html");
+        exit();
+    }
     ?>
-    <div class="container">
+    <div class="container margin-bottom">
         <h1 class="text-center mb-4"><?= $categories[array_keys($categories)[$_GET["q"] - 1]] ?></h1>
         <?php
         require '../controllers/pages-controller.php';
